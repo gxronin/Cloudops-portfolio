@@ -6,7 +6,7 @@ Hello! I'm **Gilbert Nunez**, currently learning **CloudOps / DevOps** through o
 
 This repository contains all my lab exercises, projects, and practice work as I build real-world skills in cloud infrastructure, automation, and operations.
 
-## 🎯 Goal
+## Goal
 
 To become a professional **CloudOps Engineer** skilled in:
 - Cloud Platforms (AWS/Azure/GCP)
@@ -15,7 +15,7 @@ To become a professional **CloudOps Engineer** skilled in:
 - Kubernetes & Container technologies
 - Monitoring, Logging & Observability
 
-## 📚 What’s Inside This Repository
+##  What’s Inside This Repository
 
 This repo serves as my **learning portfolio** where I save and organize all my lab work.
 
@@ -28,7 +28,7 @@ This repo serves as my **learning portfolio** where I save and organize all my l
 - **Monitoring** – Prometheus, Grafana, CloudWatch
 - **Scripting** – Bash and Python
 
-## 🧪 Labs & Projects
+##  Labs & Projects
 
 ### Project Labs:
 
@@ -60,7 +60,7 @@ This repo serves as my **learning portfolio** where I save and organize all my l
 
 *(Adding more labs here)*
 
-## 🛠️ Technologies I'm Learning
+##  Technologies I'm Learning
 
 - **Cloud**: AWS 
 - **IaC**: Terraform
@@ -70,13 +70,13 @@ This repo serves as my **learning portfolio** where I save and organize all my l
 - **Scripting**: Bash, Python
 - **Version Control**: Git & GitHub
 
-## 📈 My Learning Progress
+## My Learning Progress
 
 - Currently holding a cloud practitioner certificate, and still studying CloudOps Engineering through books and udemy courses.
 - Practicing daily with real labs instead of just theory
 - Building a strong foundation in Cloud Operations and Automation
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```bash
 .
