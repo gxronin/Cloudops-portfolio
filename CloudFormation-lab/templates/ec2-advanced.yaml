@@ -1,1 +1,77 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Advanced EC2 deployment with Parameters, Mappings, and Conditions
 
+# PARAMETERS
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t3.micro
+
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+      - prod
+
+# MAPPINGS (Region → AMI)
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-0c02fb55956c7d316
+    us-west-2:
+      AMI: ami-0892d3c7ee96c0bf7
+
+# ⚡ CONDITIONS
+Conditions:
+  IsProd: !Equals [!Ref Environment, prod]
+
+#  RESOURCES
+Resources:
+
+  WebSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH and HTTP
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+        - !If
+          - IsProd
+          - IpProtocol: tcp
+            FromPort: 80
+            ToPort: 80
+            CidrIp: 0.0.0.0/0
+          - !Ref "AWS::NoValue"
+
+  WebInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      SecurityGroupIds:
+        - !Ref WebSecurityGroup
+      Tags:
+        - Key: Environment
+          Value: !Ref Environment
+
+# OUTPUTS
+Outputs:
+  InstanceId:
+    Value: !Ref WebInstance
+
+  PublicIP:
+    Value: !GetAtt WebInstance.PublicIp
+
+  EnvironmentUsed:
+    Value: !Ref Environment
