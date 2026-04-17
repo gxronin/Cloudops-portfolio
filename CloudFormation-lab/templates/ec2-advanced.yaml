@@ -4,9 +4,11 @@ Description: Advanced EC2 deployment with Parameters, Mappings, and Conditions
 # PARAMETERS
 Parameters:
   InstanceType:
-  Type: String
-  Default: t2.micro
-  Description: Free tier eligible instance type
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t3.micro
 
   KeyName:
     Type: AWS::EC2::KeyPair::KeyName
