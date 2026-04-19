@@ -2,9 +2,9 @@ aws-cloudformation-nested-lab/
 │
 ├── README.md
 ├── templates/
-│   ├── parent.yaml
-│   ├── network.yaml
-│   └── compute.yaml
+│   ├── parentstack.yaml
+│   ├── networkstack.yaml
+│   └── computestack.yaml
 │
 ├── screenshots/
 |    MyVPC.png
