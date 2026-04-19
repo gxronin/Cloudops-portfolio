@@ -7,12 +7,14 @@ aws-cloudformation-nested-lab/
 │   └── compute.yaml
 │
 ├── screenshots/
-│   ├── Networkstack.png
-│   ├── Parentstack.png
-│   ├── MyVPC.png
-│   ├── ec2.png
-│   ├── browser-test.png
-│   └── outputs.png
+|    MyVPC.png
+|    Networkstack.png
+|    PublicIP.png
+|    S3file.png
+|    demostackvpc.png
+|    parentstack.png
+|    routetable.png
+|    runningpublicIP.png
 │
 └── diagrams/
     └── architecture.png
