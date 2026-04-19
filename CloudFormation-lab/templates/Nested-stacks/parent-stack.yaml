@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Parent stack
+
+Parameters:
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+
+Resources:
+
+  NetworkStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://mycucketdemo.s3.amazonaws.com/networkstack.yaml
+  ComputeStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://mycucketdemo.s3.amazonaws.com/computestack.yaml
+      Parameters:
+        VPC: !GetAtt NetworkStack.Outputs.VPC
+        Subnet: !GetAtt NetworkStack.Outputs.Subnet
+        KeyName: !Ref KeyName
+
+Outputs:
+  Website:
+    Value: !GetAtt ComputeStack.Outputs.PublicIP
